@@ -1,4 +1,5 @@
 import Navbar from "./Navbar";
-import Footers from "./Footers";
+import Footer from "./Footer";
+import Signin from "./Signin";
 
-export { Navbar, Footers };
+export { Navbar, Footer, Signin };

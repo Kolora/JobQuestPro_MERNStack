@@ -1,19 +1,25 @@
-import FindJob from "./FindJob";
-import Auth from "./Auth";
+import FindJobs from "./FindJobs";
+import AuthPage from "./AuthPage";
 import Companies from "./Companies";
 import CompanyProfile from "./CompanyProfile";
 import UserProfile from "./UserProfile";
 import About from "./About";
 import UploadJob from "./UploadJob";
-import JobDetails from "./JobDetails";
+import JobDetail from "./JobDetail";
+// import React from "react";
+// import ReactDOM from "react-dom";
+// import { Provider } from "react-redux";
 
 export {
-  FindJob,
+  FindJobs,
   CompanyProfile,
-  Auth,
+  AuthPage,
   Companies,
   UserProfile,
   About,
   UploadJob,
-  JobDetails,
+  JobDetail,
+  // React,
+  // ReactDOM,
+  // Provider,
 };
