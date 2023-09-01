@@ -1,6 +1,6 @@
 import React from "react";
 
-const Signin = ({ title, containerStyles, iconRight, type, onClick }) => {
+const CustomButton = ({ title, containerStyles, iconRight, type, onClick }) => {
   return (
     <button
       onClick={onClick}
@@ -13,4 +13,4 @@ const Signin = ({ title, containerStyles, iconRight, type, onClick }) => {
   );
 };
 
-export default Signin;
+export default CustomButton;

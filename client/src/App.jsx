@@ -13,27 +13,22 @@ import { Route, Routes, Outlet, Navigate, useLocation } from "react-router-dom";
 import { useSelector } from "react-redux";
 
 function Layout() {
-  const user = true; //if user exists push user to different page
+  const { user } = useSelector((state) => state.user);
   const location = useLocation();
 
-  return user ? (
+  return user?.token ? (
     <Outlet />
   ) : (
-    <Navigate to="user-auth" state={{ from: location }} replace />
-  ); //if user dont exist
+    <Navigate to="/user-auth" state={{ from: location }} replace />
+  );
 }
 
 function App() {
-  const user = {};
+  const { user } = useSelector((state) => state.user);
   return (
-    <main className="App">
-      <h1
-        className="text-3xl font-bold border-solid border-blue-700 text-black ring-2"
-        text-center
-      >
-        JobQuestPro
-      </h1>
+    <main className="bg-[#f7fdfd]">
       <Navbar />
+
       <Routes>
         <Route element={<Layout />}>
           <Route
@@ -51,17 +46,16 @@ function App() {
             element={<UserProfile />}
           />
 
-          <Route path={"company-profile"} element={<CompanyProfile />} />
-          <Route path={"company-profile/:id"} element={<CompanyProfile />} />
-          <Route path={"upload-job"} element={<UploadJob />} />
-          <Route path={"job-detail/:id"} element={<JobDetail />} />
+          <Route path={"/company-profile"} element={<CompanyProfile />} />
+          <Route path={"/company-profile/:id"} element={<CompanyProfile />} />
+          <Route path={"/upload-job"} element={<UploadJob />} />
+          <Route path={"/job-detail/:id"} element={<JobDetail />} />
         </Route>
 
-        <Route path="about" element={<About />} />
+        <Route path="/about-us" element={<About />} />
         <Route path="/user-auth" element={<AuthPage />} />
       </Routes>
-
-      <Footer />
+      {user && <Footer />}
     </main>
   );
 }
