@@ -47,7 +47,7 @@ function MenuList({ user, onClick }) {
           leaveFrom="transform opacity-100 scale-100"
           leaveTo="transform opacity-0 scale-95"
         >
-          <Menu.Items className="absolute z-50 right-2 mt-2 w-56 origin-top-right divide-y dividfe-gray-100 rounded-md bg-white shadow-lg focus:outline-none ">
+          <Menu.Items className="absolute z-50 right-2 mt-2 w-56 origin-top-right divide-y divide-gray-100 rounded-md bg-white shadow-lg focus:outline-none ">
             <div className="p-1 ">
               <Menu.Item>
                 {({ active }) => (
@@ -97,8 +97,11 @@ function MenuList({ user, onClick }) {
   );
 }
 const Navbar = () => {
-  const user = useSelector((state) => state.user);
+  // const user = useSelector((state) => state.user);
+  // const user = {};
+  const user = users[1];
   const [isOpen, setIsOpen] = useState(false);
+  console.log(user);
 
   const handleCloseNavbar = () => {
     setIsOpen((prev) => !prev);
@@ -116,6 +119,9 @@ const Navbar = () => {
 
           <ul className="hidden lg:flex text-purple-600 gap-10 text-base">
             <li>
+              <Link to="/about-us">About</Link>
+            </li>
+            <li>
               <Link to="/">Find Job</Link>
             </li>
             <li>
@@ -124,12 +130,10 @@ const Navbar = () => {
             <li>
               <Link to="/upload-job">Upload Job</Link>
             </li>
-            <li>
-              <Link to="/about-us">About</Link>
-            </li>
           </ul>
 
           <div className="hidden lg:block">
+            //if user logged in show user profile
             {!user?.token ? (
               <Link to="/user-auth">
                 <CustomButton
@@ -152,7 +156,7 @@ const Navbar = () => {
           </button>
         </nav>
 
-        {/* MOBILE MENU */}
+        {/* Mobile application */}
         <div
           className={`${
             isOpen ? "absolute flex bg-[#f7fdfd] " : "hidden"

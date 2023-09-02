@@ -16,7 +16,7 @@ function Layout() {
   const { user } = useSelector((state) => state.user);
   const location = useLocation();
 
-  return user?.token ? (
+  return user ? (
     <Outlet />
   ) : (
     <Navigate to="/user-auth" state={{ from: location }} replace />
@@ -28,7 +28,6 @@ function App() {
   return (
     <main className="bg-[#f7fdfd]">
       <Navbar />
-
       <Routes>
         <Route element={<Layout />}>
           <Route
@@ -55,6 +54,7 @@ function App() {
         <Route path="/about-us" element={<About />} />
         <Route path="/user-auth" element={<AuthPage />} />
       </Routes>
+      {/* if user not logged in dont show footer */}
       {user && <Footer />}
     </main>
   );
