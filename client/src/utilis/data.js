@@ -8,7 +8,7 @@ import {
   Google,
   Facebook,
   CodeWave,
-} from "../src/assets";
+} from "../assets";
 
 export const jobTypes = ["Full-Time", "Part-Time", "ContracT", "Intern"];
 

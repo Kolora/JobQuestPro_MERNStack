@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 import { useSelector } from "react-redux";
 import { useLocation } from "react-router-dom";
-import { Office } from "../assets";
+import { office } from "../assets";
 import { SignUp } from "../components";
 
 const AuthPage = () => {
@@ -16,7 +16,7 @@ const AuthPage = () => {
   }
   return (
     <div className="w-full ">
-      <img src={Office} alt="Office" className="object-contain " />
+      <img src={office} alt="search" className="object-contain " />
 
       <SignUp open={open} setOpen={setOpen} />
     </div>

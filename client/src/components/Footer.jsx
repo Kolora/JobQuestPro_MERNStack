@@ -1,6 +1,6 @@
 import { FaFacebookF, FaTwitter, FaLinkedinIn } from "react-icons/fa";
 import { FiInstagram } from "react-icons/fi";
-import { footerLinks } from "../utils/data";
+import { footerLinks } from "../utilis/data";
 import { Link } from "react-router-dom";
 import TextInput from "./TextInput";
 import CustomButton from "./CustomButton";
@@ -24,7 +24,7 @@ const Footer = () => {
         </svg>
       </div>
 
-      <div className="bg-[#d8d51d] ">
+      <div className="bg-[#d81dbf] ">
         <div className="container px-5 py-20 mx-auto ">
           <div className="w-full flex flex-wrap gap-10 justify-between -mb-10 -px-4">
             {footerLinks.map(({ id, title, links }) => (
@@ -88,7 +88,7 @@ const Footer = () => {
           </div>
         </div>
 
-        <div className="bg-[#001a36]">
+        <div className="bg-[#000a36]">
           <div className="container mx-auto py-4 px-5 flex flex-wrap flex-col sm:flex-row">
             <p className="text-gray-300 text-sm text-center sm:text-left">
               &copy; 2023 JobQuestPro{" "}
