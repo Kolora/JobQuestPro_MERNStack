@@ -6,6 +6,8 @@ import UserProfile from "./UserProfile";
 import About from "./About";
 import UploadJob from "./UploadJob";
 import JobDetail from "./JobDetail";
+import Loading from "./Loading";
+import CompanyCard from "./CompanyCard";
 // import React from "react";
 // import ReactDOM from "react-dom";
 // import { Provider } from "react-redux";
@@ -19,6 +21,8 @@ export {
   About,
   UploadJob,
   JobDetail,
+  Loading,
+  CompanyCard,
   // React,
   // ReactDOM,
   // Provider,
