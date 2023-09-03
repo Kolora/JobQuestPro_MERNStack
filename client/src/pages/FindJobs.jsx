@@ -5,7 +5,7 @@ import { BsStars } from "react-icons/bs";
 import { MdOutlineKeyboardArrowDown } from "react-icons/md";
 
 import Header from "../components/Header";
-import { experience, jobTypes, jobs } from "../utils/data";
+import { experience, jobTypes, jobs } from "../utilis/data";
 import { CustomButton, JobCard, ListBox } from "../components";
 
 const FindJobs = () => {
