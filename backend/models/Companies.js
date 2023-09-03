@@ -27,7 +27,7 @@ const companySchema = new Schema({
   jobPosts: [{ type: Schema.Types.ObjectId, ref: "Jobs" }],
 });
 
-// middelwares
+// middlewares
 companySchema.pre("save", async function () {
   if (!this.isModified) return;
   const salt = await bcrypt.genSalt(10);

@@ -1,39 +1,26 @@
-//importing token
-const jwt = require("jsonwebtoken");
+import JWT from "jsonwebtoken";
 
-function authorize(req, res, next) {
-  console.log("authorizing...");
-  try {
-    //check request has token sent in authorization header
-    let token = req.header("Authorization");
-    if (!token) {
-      return res.status(403).json({ error: "No token available" });
-    }
-    console.log("token :", token);
+const userAuth = async (req, res, next) => {
+  const authHeader = req?.headers?.authorization;
 
-    // token comes in the format "Bearer <token>", so must edit the string
-
-    token = token.replace("Bearer", "");
-    console.log(token);
-
-    const payload = jwt.verify(token, process.env.JWT_SECRET);
-
-    //check token is not expired and is valid
-    if (payload.error) {
-      return res.status(403).json({ error: payload.error });
-    }
-
-    //Attach payload from token to request object
-
-    req.id = payload.id;
-    req.username = payload.username;
-
-    //move to next requested route
-    next();
-  } catch (err) {
-    console.log(err.message);
-    res.status(403).json({ error: err.message });
+  if (!authHeader || !authHeader?.startsWith("Bearer")) {
+    next("Authentication== failed");
   }
-}
 
-module.exports = { authorize };
+  const token = authHeader?.split(" ")[1];
+
+  try {
+    const userToken = JWT.verify(token, process.env.JWT_SECRET_KEY);
+
+    req.body.user = {
+      userId: userToken.userId,
+    };
+
+    next();
+  } catch (error) {
+    console.log(error);
+    next("Authentication failed");
+  }
+};
+
+export default userAuth;
