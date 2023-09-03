@@ -6,7 +6,6 @@ import SignUp from "./SignUp";
 import Header from "./Header";
 import ListBox from "./ListBox";
 import JobCard from "./JobCard";
-import JobDetails from "./JobDetails";
 import CompanyCard from "./CompanyCard";
 import Loading from "./Loading";
 import JobTypes from "./JobTypes";
@@ -20,7 +19,6 @@ export {
   Header,
   ListBox,
   JobCard,
-  JobDetails,
   CompanyCard,
   Loading,
   JobTypes,
