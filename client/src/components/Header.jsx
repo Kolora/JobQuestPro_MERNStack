@@ -3,7 +3,7 @@ import { AiOutlineSearch, AiOutlineCloseCircle } from "react-icons/ai";
 import { CiLocationOn } from "react-icons/ci";
 import CustomButton from "./CustomButton";
 import { popularSearch } from "../utilis/data";
-import { HeroImage } from "../assets";
+import { office } from "../assets";
 
 const SearchInput = ({ placeholder, icon, value, setValue, styles }) => {
   const handleChange = (e) => {
@@ -61,7 +61,14 @@ const Header = ({
               setValue={setSearchQuery}
             />
             <SearchInput
-              placeholder="Add Country or City"
+              placeholder="Add Country"
+              icon={<CiLocationOn className="text-gray-600 text-xl" />}
+              value={location}
+              setValue={setLocation}
+              styles={"hidden md:flex"}
+            />
+            <SearchInput
+              placeholder="Add City"
               icon={<CiLocationOn className="text-gray-600 text-xl" />}
               value={location}
               setValue={setLocation}
@@ -73,7 +80,7 @@ const Header = ({
                 onClick={handleClick}
                 title="Search"
                 containerStyles={
-                  "text-white py-2 md:py3 px-3 md:px-10 focus:outline-none bg-blue-600 rounded-full md:rounded-md text-sm md:text-base"
+                  "text-white py-2 md:py3 px-3 md:px-10 focus:outline-none bg-purple-600 rounded-full md:rounded-md text-sm md:text-base"
                 }
               />
             </div>
@@ -93,8 +100,8 @@ const Header = ({
           )}
         </div>
 
-        <div className="w-1/3 h-full absolute top-24 md:-top-6 lg:-top-14 right-16 2xl:right-[18rem]">
-          <img src={HeroImage} className="object-contain" />
+        <div className="w-1/3 h-1/2 absolute top-24 md:-top-6 lg:-top-14 right-16 2xl:right-[18 rem]">
+          <img src={office} className="object-contain" />
         </div>
       </div>
     </div>
