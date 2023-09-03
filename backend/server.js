@@ -2,7 +2,8 @@ import bodyParser from "body-parser";
 import xss from "xss-clean";
 import morgan from "morgan";
 import mongoSanitize from "express-mongo-sanitize";
-
+import router from "./routes/index.js";
+import errorMiddleware from "./middlewares/errorMiddleware.js";
 // To run server import express, use app variable to use
 // const express = require("express");
 import express from "express";
@@ -34,10 +35,14 @@ import dbConnection from "./dbConfig/dbConnection.js";
 // const connectDatabase = require("./config");
 dbConnection();
 
+//error middleware
+app.use(errorMiddleware);
+
 //set port
 const PORT = 8080;
 
 //import routes
+app.use(router);
 
 //server listens to port
 app.listen(PORT, () => {
