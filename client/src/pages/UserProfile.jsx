@@ -104,7 +104,7 @@ const UserForm = ({ open, setOpen }) => {
                           placeholder="Phone Number"
                           type="text"
                           register={register("contact", {
-                            required: "Coontact is required!",
+                            required: "Contact is required!",
                           })}
                           error={errors.contact ? errors.contact?.message : ""}
                         />
@@ -163,7 +163,7 @@ const UserForm = ({ open, setOpen }) => {
                         About
                       </label>
                       <textarea
-                        className="ounded border border-gray-400 focus:outline-none focus:border-blue-500 focus:ring-1 focus:ring-blue-500 text-base px-4 py-2 resize-none"
+                        className="rounded border border-gray-400 focus:outline-none focus:border-blue-500 focus:ring-1 focus:ring-blue-500 text-base px-4 py-2 resize-none"
                         rows={4}
                         cols={6}
                         {...register("about", {

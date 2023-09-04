@@ -106,7 +106,7 @@ const CompanyForm = ({ open, setOpen }) => {
                       label="Company Name"
                       type="text"
                       register={register("name", {
-                        required: "Compnay Name is required",
+                        required: "Company Name is required",
                       })}
                       error={errors.name ? errors.name?.message : ""}
                     />
@@ -114,7 +114,7 @@ const CompanyForm = ({ open, setOpen }) => {
                     <TextInput
                       name="location"
                       label="Location/Address"
-                      placeholder="eg. Califonia"
+                      placeholder="eg. California"
                       type="text"
                       register={register("location", {
                         required: "Address is required",
@@ -152,7 +152,7 @@ const CompanyForm = ({ open, setOpen }) => {
                         About Company
                       </label>
                       <textarea
-                        className="ounded border border-gray-400 focus:outline-none focus:border-blue-500 focus:ring-1 focus:ring-blue-500 text-base px-4 py-2 resize-none"
+                        className="rounded border border-gray-400 focus:outline-none focus:border-blue-500 focus:ring-1 focus:ring-blue-500 text-base px-4 py-2 resize-none"
                         rows={4}
                         cols={6}
                         {...register("about", {
@@ -211,7 +211,7 @@ const CompanyProfile = () => {
 
     try {
       const res = await apiRequest({
-        url: "/comanies/get-company/" + id,
+        url: "/companies/get-company/" + id,
         method: "GET",
       });
       setinfo(res?.data);

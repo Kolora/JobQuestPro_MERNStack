@@ -14,6 +14,7 @@ import CodeWave from "./codewave.png";
 import Office from "./Office.jpg";
 import career from "./career.jpg";
 import JobImg from "./jobImg.jpg";
+import Apple from "./apple.png";
 
 export {
   CodeWave,
@@ -32,4 +33,5 @@ export {
   Office,
   career,
   job,
+  Apple,
 };
