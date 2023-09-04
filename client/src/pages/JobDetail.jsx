@@ -3,7 +3,7 @@ import { Linkedin } from "../assets";
 import moment from "moment";
 import { AiOutlineSafetyCertificate } from "react-icons/ai";
 import { useParams } from "react-router-dom";
-import { jobs } from "../utils/data";
+import { jobs } from "../utilis/data";
 import { CustomButton, JobCard } from "../components";
 
 const JobDetail = () => {

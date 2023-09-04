@@ -28,14 +28,14 @@ export const apiRequest = async ({ url, token, data, method }) => {
 export const handleFileUpload = async (uploadFile) => {
   const formData = new FormData();
   formData.append("file", uploadFile);
-  formData.append("upload_preset", "jobfinder");
+  formData.append("upload_preset", "jobQuestPro");
 
   try {
     const response = await axios.post(
-      "https://api.cloudinary.com/v1_1/dfq4ereto/image/upload/",
+      "https://api.cloudinary.com/v1_1/dnmiscoap/image/upload/",
       formData
     );
-    return response.secure_url;
+    return response.data.secure_url;
   } catch (error) {
     console.log(error);
   }

@@ -1,9 +1,14 @@
 import { createSlice } from "@reduxjs/toolkit";
-import { users } from "../src/utilis/data";
+import { users } from "../utilis/data";
+// import { dispatch } from "./store";
+
+// const initialState = {
+//   user: JSON.parse(window?.localStorage.getItem("userInfo")) ?? users[1],
+// };
 
 const initialState = {
-  user: JSON.parse(window?.localStorage.getItem("userInfo")) ?? users[1],
-}; // {}
+  user: JSON.parse(window?.localStorage.getItem("userInfo")) ?? {},
+}; //user does not exist in localStorage
 
 const userSlice = createSlice({
   name: "userInfo",

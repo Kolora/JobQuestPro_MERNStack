@@ -1,10 +1,10 @@
 import React, { useState } from "react";
 import { useSelector } from "react-redux";
 import { useLocation } from "react-router-dom";
-import { office } from "../assets";
+import { search } from "../assets";
 import { SignUp } from "../components";
 
-const AuthPage = () => {
+const Auth = () => {
   const { user } = useSelector((state) => state.user);
   const [open, setOpen] = useState(true);
   const location = useLocation();
@@ -16,11 +16,10 @@ const AuthPage = () => {
   }
   return (
     <div className="w-full ">
-      <img src={office} alt="search" className="object-contain " />
-
+      <img src={search} alt="Office" className="object-contain " />
       <SignUp open={open} setOpen={setOpen} />
     </div>
   );
 };
 
-export default AuthPage;
+export default Auth;

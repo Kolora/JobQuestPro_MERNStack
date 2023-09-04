@@ -1,7 +1,7 @@
 import { Navbar, Footer } from "./components";
 import {
   About,
-  AuthPage,
+  Auth,
   Companies,
   CompanyProfile,
   FindJobs,
@@ -11,6 +11,9 @@ import {
 } from "./pages";
 import { Route, Routes, Outlet, Navigate, useLocation } from "react-router-dom";
 import { useSelector } from "react-redux";
+
+// import Register from "./pages/users/Register";
+// import Login from "./pages/users/Login";
 
 function Layout() {
   const { user } = useSelector((state) => state.user);
@@ -25,6 +28,35 @@ function Layout() {
 
 function App() {
   const { user } = useSelector((state) => state.user);
+  // const [user, setUser] = useState({});
+  // const [isLoading, setIsLoading] = useState(true);
+  // async function getUser(token) {
+  //   try {
+  //     const response = await axios.get("/api/users", {
+  //       headers: {
+  //         Authorization: `Bearer ${token}`,
+  //       },
+  //     });
+  //     setUser(response.data);
+  //   } catch (err) {
+  //     console.log(err);
+  //     localStorage.removeItem("token");
+  //   }
+  //   setIsLoading(false);
+  // }
+
+  // useEffect(() => {
+  //   let token = localStorage.getItem("token");
+
+  //   if (token) {
+  //     getUser(token);
+  //   } else {
+  //     setIsLoading(false);
+  //   }
+  // }, []);
+
+  // let loggedIn = user.username;
+
   return (
     <main className="bg-[#f7fdfd]">
       <Navbar />
@@ -52,7 +84,12 @@ function App() {
         </Route>
 
         <Route path="/about-us" element={<About />} />
-        <Route path="/user-auth" element={<AuthPage />} />
+        <Route path="/user-auth" element={<Auth />} />
+        {/* <>
+          <Route path="/register" element={<Register setUser={setUser} />} />
+          <Route path="/login" element={<Login setUser={setUser} />} />
+          {!isLoading && <Route path="*" element={<Navigate to="/login" />} />}
+        </> */}
       </Routes>
       {/* if user not logged in dont show footer */}
       {user && <Footer />}

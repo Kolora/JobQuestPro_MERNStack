@@ -5,8 +5,11 @@ import { useLocation } from "react-router-dom";
 import { useDispatch } from "react-redux";
 import TextInput from "./TextInput";
 import CustomButton from "./CustomButton";
+import { apiRequest } from "../utilis";
+import { Login } from "../redux/userSlice";
 
 const SignUp = ({ open, setOpen }) => {
+  console.log("open", open);
   const dispatch = useDispatch();
   const location = useLocation();
 
@@ -26,13 +29,52 @@ const SignUp = ({ open, setOpen }) => {
   let from = location.state?.from?.pathname || "/";
 
   const closeModal = () => setOpen(false);
+  // const onSubmit = () => {};
+  const onSubmit = async (data) => {
+    let URL = null;
+    if (isRegister) {
+      if (accountType === "seeker") {
+        URL = "auth/register";
+      } else URL = "companies/register";
+    } else {
+      if (accountType === "seeker") {
+        URL = "auth/login";
+      } else {
+        URL = "companies/login";
+      }
+    }
 
-  const onSubmit = () => {};
+    try {
+      const res = await apiRequest({
+        url: URL,
+        data: data,
+        method: "POST",
+      });
+      console.log(res);
 
+      if (res?.status === "failed") {
+        setErrMsg(res?.message);
+      } else {
+        setErrMsg("");
+        const data = { token: res?.token, ...res?.user };
+        dispatch(Login(data));
+        localStorage.setItem("userInfo", JSON.stringify(data));
+        window.location.replace(from);
+      }
+    } catch (error) {
+      console.log(error);
+    }
+  };
   return (
     <>
       <Transition appear show={open || false}>
-        <Dialog as="div" className="relative z-10 " onClose={closeModal}>
+        <Dialog
+          as="div"
+          open={true}
+          className="relative z-10 "
+          onClose={closeModal}
+          style={{ zIndex: 10000 }}
+        >
           <Transition.Child
             as={Fragment}
             enter="ease-out duration-300"
@@ -121,7 +163,7 @@ const SignUp = ({ open, setOpen }) => {
                             placeholder={
                               accountType === "seeker"
                                 ? "eg. James"
-                                : "Comapy name"
+                                : "Company name"
                             }
                             type="text"
                             register={register(

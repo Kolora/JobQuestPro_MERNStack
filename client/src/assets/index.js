@@ -8,10 +8,10 @@ import Twitter from "./twitter.png";
 import Instagram from "./instagram.png";
 import Spotify from "./spotify.png";
 import search from "./search.png";
-import Job from "./job.jpg";
+import job from "./job.jpg";
 import Facebook from "./facebook.png";
 import CodeWave from "./codewave.png";
-import office from "./office.jpg";
+import Office from "./Office.jpg";
 import career from "./career.jpg";
 import JobImg from "./jobImg.jpg";
 
@@ -29,7 +29,7 @@ export {
   Youtube,
   search,
   JobImg,
-  office,
+  Office,
   career,
-  Job,
+  job,
 };

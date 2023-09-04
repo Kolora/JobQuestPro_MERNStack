@@ -8,6 +8,7 @@ import { FiPhoneCall, FiEdit3, FiUpload } from "react-icons/fi";
 import { Link, useParams } from "react-router-dom";
 import { companies, jobs } from "../utilis/data";
 import { CustomButton, JobCard, Loading, TextInput } from "../components";
+import { apiRequest } from "../utilis";
 
 const CompanyForm = ({ open, setOpen }) => {
   const { user } = useSelector((state) => state.user);
@@ -25,8 +26,39 @@ const CompanyForm = ({ open, setOpen }) => {
   const dispatch = useDispatch();
   const [profileImage, setProfileImage] = useState("");
   const [uploadCv, setUploadCv] = useState("");
+  const [isLoading, setIsLoading] = useState(false);
+  const [errMsg, setErrMsg] = useState({ status: false });
 
-  const onSubmit = () => {};
+  const onSubmit = async (data) => {
+    setIsLoading(true);
+    setErrMsg(null);
+
+    const uri = profileImage && (await handleFileUpload(profileImage));
+    const newData = uri ? { ...data, profileUrl: uri } : data;
+    try {
+      const res = apiRequest({
+        url: "/companies/update-company",
+        token: user?.token,
+        data: newData,
+        method: "PUT",
+      });
+      setIsLoading(false);
+
+      if (res.status === "failed") {
+        setErrMsg({ ...res });
+      } else {
+        setErrMsg({ status: "success", message: res.message });
+        dispatch(Login(data));
+        localStorage.setItem("userInfo", JSON.stringify(data));
+        setTimeout(() => {
+          window.location.reload();
+        }, 1500);
+      }
+    } catch (error) {
+      console.log(error);
+      setIsLoading(false);
+    }
+  };
 
   const closeModal = () => setOpen(false);
 
@@ -139,11 +171,15 @@ const CompanyForm = ({ open, setOpen }) => {
                     </div>
 
                     <div className="mt-4">
-                      <CustomButton
-                        type="submit"
-                        containerStyles="inline-flex justify-center rounded-md border border-transparent bg-blue-600 px-8 py-2 text-sm font-medium text-white hover:bg-[#1d4fd846] hover:text-[#1d4fd8] focus:outline-none "
-                        title={"Submit"}
-                      />
+                      {isLoading ? (
+                        <Loading />
+                      ) : (
+                        <CustomButton
+                          type="submit"
+                          containerStyles="inline-flex justify-center rounded-md border border-transparent bg-blue-600 px-8 py-2 text-sm font-medium text-white hover:bg-[#1d4fd846] hover:text-[#1d4fd8] focus:outline-none "
+                          title={"Submit"}
+                        />
+                      )}
                     </div>
                   </form>
                 </Dialog.Panel>
@@ -163,8 +199,31 @@ const CompanyProfile = () => {
   const [isLoading, setIsLoading] = useState(false);
   const [openForm, setOpenForm] = useState(false);
 
+  const fetchCompany = async () => {
+    setIsLoading(true);
+    let id = null;
+
+    if (params.id && params.id !== undefined) {
+      id = params?.id;
+    } else {
+      id = user?._id;
+    }
+
+    try {
+      const res = await apiRequest({
+        url: "/comanies/get-company/" + id,
+        method: "GET",
+      });
+      setinfo(res?.data);
+      setIsLoading(false);
+    } catch (error) {
+      console.log(error);
+      setIsLoading(false);
+    }
+  };
   useEffect(() => {
-    setInfo(companies[parseInt(params?.id) - 1 ?? 0]);
+    fetchCompany();
+    // setInfo(companies[parseInt(params?.id) - 1 ?? 0]);
     window.scrollTo({ top: 0, left: 0, behavior: "smooth" });
   }, []);
 

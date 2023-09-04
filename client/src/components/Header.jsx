@@ -3,7 +3,7 @@ import { AiOutlineSearch, AiOutlineCloseCircle } from "react-icons/ai";
 import { CiLocationOn } from "react-icons/ci";
 import CustomButton from "./CustomButton";
 import { popularSearch } from "../utilis/data";
-import { office } from "../assets";
+import { job } from "../assets";
 
 const SearchInput = ({ placeholder, icon, value, setValue, styles }) => {
   const handleChange = (e) => {
@@ -61,19 +61,19 @@ const Header = ({
               setValue={setSearchQuery}
             />
             <SearchInput
-              placeholder="Add Country"
+              placeholder="Add Country or city"
               icon={<CiLocationOn className="text-gray-600 text-xl" />}
               value={location}
               setValue={setLocation}
               styles={"hidden md:flex"}
             />
-            <SearchInput
+            {/* <SearchInput
               placeholder="Add City"
               icon={<CiLocationOn className="text-gray-600 text-xl" />}
               value={location}
               setValue={setLocation}
               styles={"hidden md:flex"}
-            />
+            /> */}
 
             <div>
               <CustomButton
@@ -101,7 +101,7 @@ const Header = ({
         </div>
 
         <div className="w-1/3 h-1/2 absolute top-24 md:-top-6 lg:-top-14 right-16 2xl:right-[18 rem]">
-          <img src={office} className="object-contain" />
+          <img src={job} className="object-contain" />
         </div>
       </div>
     </div>
