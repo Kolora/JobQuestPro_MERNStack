@@ -3,6 +3,7 @@ import xss from "xss-clean";
 import morgan from "morgan";
 import mongoSanitize from "express-mongo-sanitize";
 import router from "./routes/index.js";
+// import dbconnection from "./dbConfig/dbConnection.js";
 import errorMiddleware from "./middlewares/errorMiddleware.js";
 // To run server import express, use app variable to use
 // const express = require("express");

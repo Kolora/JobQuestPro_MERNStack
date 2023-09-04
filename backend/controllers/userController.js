@@ -1,6 +1,35 @@
 import mongoose from "mongoose";
 import Users from "../models/User.js";
+export const createUser = async (req, res, next) => {
+  const { firstName, lastName, email, password } = req.body;
+  try {
+    if (!firstName || !lastName || !email || !password) {
+      next("Please provide all required fields");
+    }
+    // Check if the above details provided by the user are unique (i.e no user exists with the same details provided above)
 
+    const userDetails = {
+      firstName,
+      lastName,
+      email,
+      password,
+    };
+
+    const new_user = new Users(userDetails);
+    await new_user.save();
+
+    const token = new_user.createJWT();
+
+    res.status(200).json({
+      success: true,
+      message: "User created successfully",
+      new_user,
+      token,
+    });
+  } catch (e) {
+    console.log("Error: " + e);
+  }
+};
 export const updateUser = async (req, res, next) => {
   const {
     firstName,
