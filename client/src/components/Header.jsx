@@ -61,19 +61,19 @@ const Header = ({
               setValue={setSearchQuery}
             />
             <SearchInput
-              placeholder="Add Country or city"
-              icon={<CiLocationOn className="text-gray-600 text-xl" />}
-              value={location}
-              setValue={setLocation}
-              styles={"hidden md:flex"}
-            />
-            {/* <SearchInput
               placeholder="Add City"
               icon={<CiLocationOn className="text-gray-600 text-xl" />}
               value={location}
               setValue={setLocation}
               styles={"hidden md:flex"}
-            /> */}
+            />
+            <SearchInput
+              placeholder="Add Country"
+              icon={<CiLocationOn className="text-gray-600 text-xl" />}
+              value={location}
+              setValue={setLocation}
+              styles={"hidden md:flex"}
+            />
 
             <div>
               <CustomButton

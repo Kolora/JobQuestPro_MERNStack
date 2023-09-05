@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import { useLocation, useNavigate } from "react-router-dom";
 import { BiBriefcaseAlt2 } from "react-icons/bi";
 import { BsStars } from "react-icons/bs";
@@ -42,7 +42,14 @@ const FindJobs = () => {
         url: "/jobs" + newURL,
         method: "GET",
       });
-    } catch (error) {}
+      console.log(res.data);
+      setNumPage(res?.numOfPage);
+      setRecordsCount(res?.totalJobs);
+      setData(res.data);
+      setIsFetching(false);
+    } catch (error) {
+      setIsFetching(false);
+    }
   };
   const filterJobs = (val) => {
     if (filterJobTypes?.includes(val)) {
@@ -54,6 +61,16 @@ const FindJobs = () => {
 
   const filterExperience = async (e) => {
     setFilterExp(e);
+  };
+
+  const handleSearchSubmit = async (e) => {
+    e.preventDefault();
+    await fetchJobs();
+  };
+
+  const handleShowMore = async (e) => {
+    e.preventDefault();
+    setPage((prev) => prev + 1);
   };
 
   useEffect(() => {
@@ -78,7 +95,7 @@ const FindJobs = () => {
       <Header
         title="Make your dream job a reality "
         type="home"
-        handleClick={() => {}}
+        handleClick={handleSearchSubmit}
         searchQuery={searchQuery}
         setSearchQuery={setSearchQuery}
         location={jobLocation}
@@ -165,6 +182,7 @@ const FindJobs = () => {
                 logo: job?.company?.profileUrl,
                 ...job,
               };
+              console.log(job);
               return <JobCard job={newJob} key={index} />;
             })}
           </div>
@@ -172,8 +190,9 @@ const FindJobs = () => {
           {numPage > page && !isFetching && (
             <div className="w-full flex items-center justify-center pt-16">
               <CustomButton
+                onClick={handleShowMore}
                 title="Load More"
-                containerStyles={`text-blue-600 py-1.5 px-5 focus:outline-none hover:bg-blue-700 hover:text-white rounded-full text-base border border-blue-600`}
+                containerStyles={`text-blue-600 py-1.5 px-5 focus:outline-none hover:bg-blue-700 hover:text-white rounded-full text-base border border-purple-600`}
               />
             </div>
           )}
