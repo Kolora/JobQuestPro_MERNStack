@@ -63,7 +63,7 @@ export const jobs = [
     id: "2",
     company: {
       name: "Google Corporation",
-      location: "California",
+      location: "Silicon Valley",
       email: "support@google.com",
       contact: "support@google",
       about:
@@ -117,7 +117,7 @@ export const jobs = [
     id: "4",
     company: {
       name: "Spotify Corporation",
-      location: "Germany",
+      location: "Australia",
       email: "support@microsoft.com",
       contact: "support@microsoft",
       about:
@@ -125,7 +125,7 @@ export const jobs = [
       profileUrl: Spotify,
     },
     jobTitle: "CFO",
-    location: "Norway",
+    location: "Melbourne",
     jobType: "Full-Time",
     salary: "1200",
     detail: [
@@ -144,7 +144,7 @@ export const jobs = [
     id: "5",
     company: {
       name: "Facebook Corporation",
-      location: "Germany",
+      location: "Europe",
       email: "support@microsoft.com",
       contact: "support@microsoft",
       about:
@@ -152,7 +152,7 @@ export const jobs = [
       profileUrl: Facebook,
     },
     jobTitle: "CFO",
-    location: "Norway",
+    location: "Netherlands",
     jobType: "Full-Time",
     salary: "1200",
     detail: [
@@ -171,7 +171,7 @@ export const jobs = [
     id: "6",
     company: {
       name: "WhatsApp Corporation",
-      location: "Germany",
+      location: "London",
       email: "support@microsoft.com",
       contact: "support@microsoft",
       about:
@@ -179,7 +179,7 @@ export const jobs = [
       profileUrl: WhatsApp,
     },
     jobTitle: "Product Manager",
-    location: "Norway",
+    location: "Switzerland",
     jobType: "Full-Time",
     salary: "1200",
     detail: [
@@ -260,8 +260,8 @@ export const jobs = [
       profileUrl: Apple,
     },
     jobTitle: "Devops engineer",
-    location: "Norway",
-    jobType: "Full-Time",
+    location: "Atlanta",
+    jobType: "Part-Time",
     salary: "1200",
     detail: [
       {
