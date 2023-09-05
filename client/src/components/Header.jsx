@@ -4,6 +4,7 @@ import { CiLocationOn } from "react-icons/ci";
 import CustomButton from "./CustomButton";
 import { popularSearch } from "../utilis/data";
 import { job } from "../assets";
+import { JobQuest } from "../assets";
 
 const SearchInput = ({ placeholder, icon, value, setValue, styles }) => {
   const handleChange = (e) => {

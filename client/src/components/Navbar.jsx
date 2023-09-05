@@ -9,6 +9,7 @@ import { Link } from "react-router-dom";
 import CustomButton from "./CustomButton";
 import { users } from "../utilis/data";
 import { useSelector, useDispatch } from "react-redux";
+import { JobQuest } from "../assets";
 // import icon from "../assets/react.svg";
 
 const LogOut = () => {
@@ -158,6 +159,7 @@ const Navbar = () => {
           <div>
             <Link to="/" className="text-purple-600 font-bold text-xl">
               Job<span className="text-purple-400">QuestPro</span>
+              <img src={JobQuest} alt="jobquest img" />
             </Link>
           </div>
 
@@ -232,7 +234,7 @@ const Navbar = () => {
               <a href="/user-auth">
                 <CustomButton
                   title="Sign In"
-                  containerStyles={`text-blue-600 py-1.5 px-5 focus:outline-none hover:bg-blue-700 hover:text-white rounded-full text-base border border-blue-600`}
+                  containerStyles={`text-purple-600 py-1.5 px-5 focus:outline-none hover:bg-purple-700 hover:text-white rounded-full text-base border border-purple-600`}
                 />
               </a>
             ) : (
