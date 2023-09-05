@@ -11,6 +11,7 @@ const JobCard = ({ job }) => {
       >
         <div className="w-full h-full flex flex-col justify-between">
           <div className="flex gap-3">
+            {/* <img src={job?.company?.profileUrl} alt={job?.company?.name} className="w-14 h-14" /> */}
             <img src={job?.logo} alt={job?.name} className="w-14 h-14" />
 
             <div className="w-full h-16 flex flex-col justify-center">

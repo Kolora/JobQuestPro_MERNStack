@@ -9,7 +9,6 @@ import { apiRequest } from "../utilis";
 import { Login } from "../redux/userSlice";
 
 const SignUp = ({ open, setOpen }) => {
-  console.log("open", open);
   const dispatch = useDispatch();
   const location = useLocation();
 

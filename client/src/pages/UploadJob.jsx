@@ -4,6 +4,8 @@ import { useForm } from "react-hook-form";
 import { CustomButton, JobCard, JobTypes, TextInput } from "../components";
 import { jobs } from "../utilis/data";
 import { useSelector } from "react-redux";
+import Loading from "../components/Loading";
+
 const UploadJob = () => {
   const { user } = useSelector((state) => state.user);
   const {
@@ -18,6 +20,7 @@ const UploadJob = () => {
   });
 
   const [errMsg, setErrMsg] = useState("");
+  // const [jobTitle, setJobTitle] = useState("Full-Time");
   const [jobType, setJobType] = useState("Full-Time");
   const [isLoading, setIsLoading] = useState(false);
   const [recentPost, setRecentPost] = useState([]);

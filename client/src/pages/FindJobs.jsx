@@ -5,6 +5,7 @@ import { BsStars } from "react-icons/bs";
 import { MdOutlineKeyboardArrowDown } from "react-icons/md";
 
 import Header from "../components/Header";
+
 import { experience, jobTypes, jobs } from "../utilis/data";
 import { CustomButton, JobCard, ListBox } from "../components";
 
@@ -14,6 +15,7 @@ const FindJobs = () => {
   const [numPage, setNumPage] = useState(1);
   const [recordCount, setRecordCount] = useState(0);
   const [data, setData] = useState([]);
+  const [expVal, setExpVal] = useState([]);
 
   const [searchQuery, setSearchQuery] = useState("");
   const [jobLocation, setJobLocation] = useState("");
@@ -23,7 +25,25 @@ const FindJobs = () => {
 
   const location = useLocation();
   const navigate = useNavigate();
-
+  const fetchJobs = async () => {
+    setIsFetching(true);
+    const newURL = updateURL({
+      pageNum: page,
+      query: searchQuery,
+      cmpLoc: jobLocation,
+      sort: sort,
+      navigate: navigate,
+      location: location,
+      jType: filterJobTypes,
+      exp: filterExp,
+    });
+    try {
+      const res = await apiRequest({
+        url: "/jobs" + newURL,
+        method: "GET",
+      });
+    } catch (error) {}
+  };
   const filterJobs = (val) => {
     if (filterJobTypes?.includes(val)) {
       setFilterJobTypes(filterJobTypes.filter((el) => el != val));
@@ -35,6 +55,23 @@ const FindJobs = () => {
   const filterExperience = async (e) => {
     setFilterExp(e);
   };
+
+  useEffect(() => {
+    if (expVal.length > 0) {
+      let newExpVal = [];
+      expVal?.map((el) => {
+        const newEl = el?.split("-");
+        newExpVal.push(Number(newEl[0]), Number(newE1[1]));
+      });
+      newExpVal?.sort((a, b) => a - b);
+
+      setFilterExp(`${newExpVal[0]}${newExpVal[newExpVal?.length]}`);
+    }
+  }, [expVal]);
+
+  useEffect(() => {
+    fetchJobs();
+  }, [sort, filterJobTypes, filterExp, page]);
 
   return (
     <div>
@@ -110,7 +147,7 @@ const FindJobs = () => {
         <div className="w-full md:w-5/6 px-5 md:px-0">
           <div className="flex items-center justify-between mb-4">
             <p className="text-sm md:text-base">
-              Showing: <span className="font-semibold">1,902</span> Jobs
+              Showing: <span className="font-semibold">{recordCount}</span> Jobs
               Available
             </p>
 
@@ -122,9 +159,14 @@ const FindJobs = () => {
           </div>
 
           <div className="w-full flex flex-wrap gap-4">
-            {jobs.map((job, index) => (
-              <JobCard job={job} key={index} />
-            ))}
+            {data?.map((job, index) => {
+              const newJob = {
+                name: job?.company?.name,
+                logo: job?.company?.profileUrl,
+                ...job,
+              };
+              return <JobCard job={newJob} key={index} />;
+            })}
           </div>
 
           {numPage > page && !isFetching && (

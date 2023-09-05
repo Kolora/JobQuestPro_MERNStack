@@ -17,7 +17,7 @@ export const apiRequest = async ({ url, token, data, method }) => {
       },
     });
 
-    return result.data;
+    return result?.data;
   } catch (error) {
     const err = error.response.data;
     console.log(err);
@@ -28,7 +28,7 @@ export const apiRequest = async ({ url, token, data, method }) => {
 export const handleFileUpload = async (uploadFile) => {
   const formData = new FormData();
   formData.append("file", uploadFile);
-  formData.append("upload_preset", "jobQuestPro");
+  formData.append("upload_preset", "JobQuestPro");
 
   try {
     const response = await axios.post(

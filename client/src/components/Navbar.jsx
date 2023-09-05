@@ -46,9 +46,10 @@ const LogOut = () => {
 function MenuList({ user, onClick }) {
   const dispatch = useDispatch();
   const handleLogout = () => {
-    LogOut();
+    dispatch(LogOut());
     window.location.replace("/");
   };
+
   return (
     <div>
       <Menu as="div" className="inline-block text-left">
