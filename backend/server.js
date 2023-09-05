@@ -1,3 +1,4 @@
+import express from "express";
 import bodyParser from "body-parser";
 import xss from "xss-clean";
 import morgan from "morgan";
@@ -7,8 +8,11 @@ import router from "./routes/index.js";
 import errorMiddleware from "./middlewares/errorMiddleware.js";
 // To run server import express, use app variable to use
 // const express = require("express");
-import express from "express";
+
 const app = express();
+
+//set port
+const PORT = 8080;
 
 //enable env variables
 // require("dotenv").config();
@@ -28,7 +32,6 @@ app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: true }));
 app.use(express.json({ limit: "10mb" }));
 app.use(express.urlencoded({ extended: true }));
-
 app.use(morgan("dev"));
 
 //connect to database via config file
@@ -36,14 +39,11 @@ import dbConnection from "./dbConfig/dbConnection.js";
 // const connectDatabase = require("./config");
 dbConnection();
 
-//error middleware
-app.use(errorMiddleware);
-
-//set port
-const PORT = 8080;
-
 //import routes
 app.use(router);
+
+//error middleware
+app.use(errorMiddleware);
 
 //server listens to port
 app.listen(PORT, () => {

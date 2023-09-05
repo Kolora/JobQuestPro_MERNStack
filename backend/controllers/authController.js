@@ -60,7 +60,7 @@ export const signIn = async (req, res, next) => {
   try {
     //validation
     if (!email || !password) {
-      next("Please Provide AUser Credentials");
+      next("Please Provide User Credentials");
       return;
     }
 
