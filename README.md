@@ -2,7 +2,7 @@
 
 Deploy Links:
 
-Backend render deploy : https://jobquestpro.onrender.com/api-v1/jobs/find-jobs
+Backend render deploy : https://jobquestpro2.onrender.com/api-v1/jobs/find-jobs
 
 Frontend client deploy: https://jobquestpro2.netlify.app/
 
