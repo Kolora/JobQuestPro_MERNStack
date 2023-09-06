@@ -15,7 +15,7 @@ import Office from "./office.jpg";
 import career from "./career.jpg";
 import JobImg from "./jobImg.jpg";
 import Apple from "./apple.png";
-import JobQuest from "./jobQuest.png";
+import JobQuest from "./JobQuest.png";
 
 export {
   CodeWave,
