@@ -11,7 +11,7 @@ import search from "./search.png";
 import job from "./job.jpg";
 import Facebook from "./facebook.png";
 import CodeWave from "./codewave.png";
-import Office from "./Office.jpg";
+import Office from "./office.jpg";
 import career from "./career.jpg";
 import JobImg from "./jobImg.jpg";
 import Apple from "./apple.png";
