@@ -52,7 +52,7 @@ app.use(errorMiddleware);
 app.use((req, res, next) => {
   const allowedOrigins = [
     "http://localhost:5173",
-    "https://jobquestpro1.netlify.app",
+    "https://jobquestpro2.netlify.app",
   ];
   const origin = req.headers.origin;
   if (allowedOrigins.includes(origin)) {
