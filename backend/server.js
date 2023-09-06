@@ -50,7 +50,10 @@ app.use(errorMiddleware);
 // app.use(cors({ origin: "" }));
 
 app.use((req, res, next) => {
-  const allowedOrigins = ["http://localhost:5173"];
+  const allowedOrigins = [
+    "http://localhost:5173",
+    "https://jobquestpro1.netlify.app",
+  ];
   const origin = req.headers.origin;
   if (allowedOrigins.includes(origin)) {
     res.setHeader("Access-Control-Allow-Origin", origin);
