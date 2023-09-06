@@ -13,8 +13,10 @@ export const createJob = async (req, res, next) => {
       experience,
       desc,
       requirements,
+      logo,
     } = req.body;
 
+    // check if all required fields are present
     if (
       !jobTitle ||
       !jobType ||
@@ -39,6 +41,7 @@ export const createJob = async (req, res, next) => {
       salary,
       vacancies,
       experience,
+      logo,
       detail: { desc, requirements },
       company: id,
     };
@@ -175,7 +178,7 @@ export const getJobPosts = async (req, res, next) => {
 
     // pagination
     const page = Number(req.query.page) || 1;
-    const limit = Number(req.query.limit) || 1;
+    const limit = Number(req.query.limit) || 20;
     const skip = (page - 1) * limit;
 
     //records count

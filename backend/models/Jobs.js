@@ -11,6 +11,11 @@ const jobSchema = new mongoose.Schema(
     experience: { type: Number, default: 0 },
     detail: [{ desc: { type: String }, requirements: { type: String } }],
     application: [{ type: Schema.Types.ObjectId, ref: "Users" }],
+    logo: {
+      type: String,
+      default:
+        "https://thumbs.dreamstime.com/b/incognito-icon-vector-illustration-browse-private-isolated-white-circle-incognito-icon-vector-illustration-browse-private-140652587.jpg",
+    },
   },
   { timestamps: true }
 );

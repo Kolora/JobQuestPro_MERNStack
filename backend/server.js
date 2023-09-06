@@ -45,6 +45,23 @@ app.use(router);
 //error middleware
 app.use(errorMiddleware);
 
+// // allowed origins to make requests
+// app.use(cors({ origin: "http://localhost:5173" }));
+// app.use(cors({ origin: "" }));
+
+app.use((req, res, next) => {
+  const allowedOrigins = ["http://localhost:5173"];
+  const origin = req.headers.origin;
+  if (allowedOrigins.includes(origin)) {
+    res.setHeader("Access-Control-Allow-Origin", origin);
+  }
+  //res.header('Access-Control-Allow-Origin', 'http://127.0.0.1:8020');
+  res.header("Access-Control-Allow-Methods", "GET, OPTIONS");
+  res.header("Access-Control-Allow-Headers", "Content-Type, Authorization");
+  res.header("Access-Control-Allow-Credentials", true);
+  return next();
+});
+
 //server listens to port
 app.listen(PORT, () => {
   console.log("server listening on port: ", PORT);
