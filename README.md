@@ -4,7 +4,7 @@ Deploy Links:
 
 Backend render deploy : https://jobquestpro.onrender.com/api-v1/jobs/find-jobs
 
-Frontend client deploy: https://jobquestpro.netlify.app
+Frontend client deploy: https://jobquestpro2.netlify.app/
 
 Introduction:
 Objective of this Job portal project was to create a full stack web application using MERN (MongoDB, Express.js, React.js, Node.js ). This portal allows users to search for job listings, view job details, and apply for jobs. Following are the  functionalities and features provided for this job search application:
