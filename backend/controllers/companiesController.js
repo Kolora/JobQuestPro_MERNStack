@@ -93,10 +93,14 @@ export const signIn = async (req, res, next) => {
 };
 
 export const updateCompanyProfile = async (req, res, next) => {
-  const { name, contact, location, profileUrl, about } = req.body;
+  let { name, contact, location, profileUrl, about } = req.body;
 
   try {
     // validation
+    if (!profileUrl) {
+      profileUrl =
+        "https://tse1.mm.bing.net/th?id=OIP.7rOJgsHY_z0_XguiYEJQNAHaHa&pid=Api&P=0&h=180";
+    }
     if (!name || !location || !about || !contact || !profileUrl) {
       next("Please Provide All Required Fields");
       return;
