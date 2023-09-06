@@ -8,6 +8,7 @@ import Header from "../components/Header";
 
 import { experience, jobTypes, jobs } from "../utilis/data";
 import { CustomButton, JobCard, ListBox } from "../components";
+import { updateURL, apiRequest } from "../utilis/index";
 
 const FindJobs = () => {
   const [sort, setSort] = useState("Newest");
@@ -44,7 +45,7 @@ const FindJobs = () => {
       });
       console.log(res.data);
       setNumPage(res?.numOfPage);
-      setRecordsCount(res?.totalJobs);
+      setRecordCount(res?.totalJobs);
       setData(res.data);
       setIsFetching(false);
     } catch (error) {

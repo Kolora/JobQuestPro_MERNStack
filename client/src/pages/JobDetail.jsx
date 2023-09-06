@@ -4,7 +4,9 @@ import moment from "moment";
 import { AiOutlineSafetyCertificate } from "react-icons/ai";
 import { useParams } from "react-router-dom";
 import { jobs } from "../utilis/data";
-import { CustomButton, JobCard } from "../components";
+import { CustomButton, JobCard, Loading } from "../components";
+import { useSelector } from "react-redux";
+import { apiRequest } from "../utilis/index";
 
 const JobDetail = () => {
   const { id } = useParams();
@@ -70,7 +72,7 @@ const JobDetail = () => {
             <div className="w-full flex items-center justify-between">
               <div className="w-3/4 flex gap-2">
                 <img
-                  src={job?.company?.profileUrl}
+                  src={job?.logo}
                   alt={job?.company?.name}
                   className="w-20 h-20 md:w-24 md:h-20 rounded"
                 />
@@ -206,7 +208,7 @@ const JobDetail = () => {
         )}
 
         {/* RIGHT SIDE */}
-        <div className="w-full md:w-1/3 2xl:w-2/4 p-5 mt-20 md:mt-0">
+        {/* <div className="w-full md:w-1/3 2xl:w-2/4 p-5 mt-20 md:mt-0">
           <p className="text-gray-500 font-semibold">Similar Job Post</p>
 
           <div className="w-full flex flex-wrap gap-4">
@@ -220,7 +222,7 @@ const JobDetail = () => {
               <JobCard job={job} key={index} />;
             })}
           </div>
-        </div>
+        </div> */}
       </div>
     </div>
   );

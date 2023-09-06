@@ -5,6 +5,7 @@ import { CustomButton, JobCard, JobTypes, TextInput } from "../components";
 import { jobs } from "../utilis/data";
 import { useSelector } from "react-redux";
 import Loading from "../components/Loading";
+import { apiRequest } from "../utilis/index";
 
 const UploadJob = () => {
   const { user } = useSelector((state) => state.user);
@@ -80,7 +81,7 @@ const UploadJob = () => {
 
           <form
             className="w-full mt-2 flex flex-col gap-8"
-            onSubmit={handleSubmit(onSubmit)}
+            // onSubmit={handleSubmit(onSubmit)}
           >
             <TextInput
               name="jobTitle"
@@ -195,6 +196,7 @@ const UploadJob = () => {
                   type="submit"
                   containerStyles="inline-flex justify-center rounded-md border border-transparent bg-blue-600 px-8 py-2 text-sm font-medium text-white hover:bg-[#1d4fd846] hover:text-[#1d4fd8] focus:outline-none "
                   title="Submit Job"
+                  onClick={handleSubmit(onSubmit)}
                 />
               )}
             </div>

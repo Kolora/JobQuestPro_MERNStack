@@ -47,7 +47,7 @@ const LogOut = () => {
 function MenuList({ user, onClick }) {
   const dispatch = useDispatch();
   const handleLogout = () => {
-    dispatch(LogOut());
+    LogOut();
     window.location.replace("/");
   };
 
@@ -174,7 +174,17 @@ const Navbar = () => {
               <Link to="/companies">Companies</Link>
             </li>
             <li>
-              <Link to="/upload-job">Upload Job</Link>
+              <Link
+                to={
+                  user?.user?.accountType === "seeker"
+                    ? "apply-history"
+                    : "upload-job"
+                }
+              >
+                {user?.user?.accountType === "seeker"
+                  ? "Applications"
+                  : "Upload Job"}
+              </Link>
             </li>
           </ul>
 

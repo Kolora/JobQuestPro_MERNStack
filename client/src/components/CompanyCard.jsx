@@ -7,7 +7,10 @@ const CompanyCard = ({ cmp }) => {
       <div className="w-3/4 md:w-2/4 flex gap-4 items-center">
         <Link to={`/company-profile/${cmp?._id}`}>
           <img
-            src={cmp?.profileUrl}
+            src={
+              cmp?.profileUrl ||
+              "https://res.cloudinary.com/dunsguide/image/upload/b_white,c_pad,d_defaults:default_company_logo.png,dpr_auto,h_180,w_180/v1/defaults/default_company_logo.png"
+            }
             alt={cmp?.name}
             className="w-8 md:w-12 h-8 md:h-12 rounded"
           />

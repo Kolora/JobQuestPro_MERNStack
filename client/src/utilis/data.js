@@ -33,7 +33,7 @@ export const popularSearch = [
 
 export const jobs = [
   {
-    id: "1",
+    logo: "https://tse3.mm.bing.net/th?id=OIP.S5MPE2Trr4z4SN5SOxErywHaFj&pid=Api&P=0&h=180",
     company: {
       name: "Microsoft Corporation",
       location: "California",
@@ -41,7 +41,8 @@ export const jobs = [
       contact: "support@microsoft",
       about:
         "Microsoft Corporation, founded by Bill Gates and Paul Allen in 1975 and led by CEO Satya Nadella, is a global technology giant headquartered in Redmond, Washington. With a mission to empower individuals and organizations to achieve more, Microsoft operates across diverse sectors. They are renowned for their Windows operating system and Office productivity suite, which have become industry standards. Additionally, Microsoft plays a significant role in cloud computing with Azure, offers a range of hardware products like Xbox and Surface, and provides enterprise solutions such as Microsoft 365 and Dynamics 365. Their commitment to innovation is evident through ongoing research in fields like artificial intelligence and quantum computing. Microsoft's corporate culture emphasizes innovation, diversity, inclusion, and social responsibility, making them a leader not only in technology but also in ethical business practices.",
-      profileUrl: Twitter,
+      profileUrl:
+        "https://tse3.mm.bing.net/th?id=OIP.S5MPE2Trr4z4SN5SOxErywHaFj&pid=Api&P=0&h=180",
     },
     jobTitle: "Software Engineer",
     location: "West US",
