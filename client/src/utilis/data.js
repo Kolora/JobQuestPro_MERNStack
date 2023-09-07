@@ -42,12 +42,12 @@ export const jobs = [
       about:
         "Microsoft Corporation, founded by Bill Gates and Paul Allen in 1975 and led by CEO Satya Nadella, is a global technology giant headquartered in Redmond, Washington. With a mission to empower individuals and organizations to achieve more, Microsoft operates across diverse sectors. They are renowned for their Windows operating system and Office productivity suite, which have become industry standards. Additionally, Microsoft plays a significant role in cloud computing with Azure, offers a range of hardware products like Xbox and Surface, and provides enterprise solutions such as Microsoft 365 and Dynamics 365. Their commitment to innovation is evident through ongoing research in fields like artificial intelligence and quantum computing. Microsoft's corporate culture emphasizes innovation, diversity, inclusion, and social responsibility, making them a leader not only in technology but also in ethical business practices.",
       profileUrl:
-        "https://tse3.mm.bing.net/th?id=OIP.S5MPE2Trr4z4SN5SOxErywHaFj&pid=Api&P=0&h=180",
+        "https://lh5.googleusercontent.com/-Q6N-vTG04fI/TYpdRn-ArgI/AAAAAAAAMUI/Q9wAdNtXm-k/s1600/microsoft_logo20.gif",
     },
     jobTitle: "Software Engineer",
     location: "West US",
     jobType: "Full-Time",
-    salary: "1200",
+    salary: "12000",
     detail: [
       {
         desc: "Highly skilled professional responsible for the complete lifecycle of software development, encompassing design, coding, testing, and maintenance. They collaborate with diverse teams to translate user requirements into functional software solutions. Using programming languages like Java, Python, C++, or JavaScript, they create robust and efficient code, adhering to best practices to ensure codebase integrity and scalability. Thorough testing and quality assurance are integral parts of their role, as they strive to identify and rectify any issues or bugs. Strong problem-solving skills, familiarity with data structures and algorithms, and the ability to work within agile methodologies are essential traits. Software engineers are continually learning and staying updated on the latest industry trends, making them indispensable in the ever-evolving landscape of technology. ",
@@ -62,6 +62,7 @@ export const jobs = [
   },
   {
     id: "2",
+    logo: "https://tse3.mm.bing.net/th?id=OIP.SqEICC59PL1VrdefhGEqqgHaCg&pid=Api&P=0&h=180",
     company: {
       name: "Google Corporation",
       location: "Silicon Valley",
@@ -89,6 +90,7 @@ export const jobs = [
   },
   {
     id: "3",
+    logo: "https://tse3.mm.bing.net/th?id=OIP.HYO7-wdnbX870hsFydUn_gHaEK&pid=Api&P=0&h=180",
     company: {
       name: "LinkedIn Corporation",
       location: "Germany",
@@ -127,7 +129,7 @@ export const jobs = [
     },
     jobTitle: "CFO",
     location: "Melbourne",
-    jobType: "Full-Time",
+    jobType: "Part-Time",
     salary: "1200",
     detail: [
       {
@@ -269,7 +271,7 @@ export const jobs = [
         desc: "DevOps Engineers act as bridge builders between development and operations, fostering a culture of collaboration and automation within an organization. They leverage a combination of technical expertise, process improvement, and tooling to enhance software delivery, deployment, and overall system performance.",
 
         requirement:
-          "Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum.",
+          "DevOps engineers are skilled in orchestrating containerization technologies like Docker and Kubernetes to standardize application deployment across diverse environments. Their responsibilities extend to setting up robust monitoring, logging, and security measures, all while fostering collaboration among cross-functional teams. Proficiency in scripting and coding, as well as familiarity with version control systems and cloud platforms, is fundamental to excel in this role. In essence, a DevOps engineer is the linchpin in modern software development, facilitating rapid, reliable, and secure application releases..",
       },
     ],
     applicants: ["1", "2", "3", "4"],
