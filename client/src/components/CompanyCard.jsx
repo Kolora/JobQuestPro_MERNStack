@@ -1,5 +1,6 @@
 import React from "react";
 import { Link } from "react-router-dom";
+// import JobCard from "./JobCard";
 
 const CompanyCard = ({ cmp }) => {
   return (
@@ -34,6 +35,17 @@ const CompanyCard = ({ cmp }) => {
         <p className="text-blue-600 font-semibold">{cmp?.jobPosts?.length}</p>
         <span className="text-xs md:base font-normal text-gray-600">
           Jobs Posted
+          {/* <div className="w-full flex flex-wrap gap-4">
+            {data?.map((job, index) => {
+              const newJob = {
+                name: job?.company?.name,
+                logo: job?.company?.profileUrl,
+                ...job,
+              };
+              console.log(job);
+              return <JobCard job={newJob} key={index} />;
+            })}
+          </div> */}
         </span>
       </div>
     </div>

@@ -14,35 +14,7 @@ import { JobQuest } from "../assets";
 
 const LogOut = () => {
   localStorage.removeItem("userInfo");
-  // setUser({});
 };
-
-// return (
-//   <ul id="navbar">
-//     <li>
-//       <Link to="/">
-//         <img src={icon} alt="React Icon" id="icon" />
-//       </Link>
-//     </li>
-//     {username ? (
-//       <>
-//         <li style={{ color: "black" }}>Welcome {username}!</li>
-//         <li onClick={logout}>
-//           <Link to="/posts">Logout</Link>
-//         </li>
-//       </>
-//     ) : (
-//       <>
-//         <li>
-//           <Link to="/login">Login</Link>
-//         </li>
-//         <li>
-//           <Link to="/register">Register</Link>
-//         </li>
-//       </>
-//     )}
-//   </ul>
-// );
 
 function MenuList({ user, onClick }) {
   const dispatch = useDispatch();

@@ -84,9 +84,9 @@ const JobDetail = () => {
 
                   <span className="text-base">{job?.location}</span>
 
-                  <span className="text-base text-blue-600">
+                  {/* <span className="text-base text-blue-600">
                     {job?.company?.name}
-                  </span>
+                  </span> */}
 
                   <span className="text-gray-500 text-sm">
                     {moment(job?.createdAt).fromNow()}
@@ -206,9 +206,8 @@ const JobDetail = () => {
             </div>
           </div>
         )}
-
         {/* RIGHT SIDE */}
-        {/* <div className="w-full md:w-1/3 2xl:w-2/4 p-5 mt-20 md:mt-0">
+        <div className="w-full md:w-1/3 2xl:w-2/4 p-5 mt-20 md:mt-0">
           <p className="text-gray-500 font-semibold">Similar Job Post</p>
 
           <div className="w-full flex flex-wrap gap-4">
@@ -218,11 +217,10 @@ const JobDetail = () => {
                 logo: job?.company.profileUrl,
                 ...job,
               };
-              return;
-              <JobCard job={job} key={index} />;
+              return <JobCard job={data} key={index} />;
             })}
           </div>
-        </div> */}
+        </div>
       </div>
     </div>
   );
