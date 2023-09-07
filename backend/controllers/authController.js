@@ -25,7 +25,7 @@ export const register = async (req, res, next) => {
       next("Email Address already exists");
       return;
     }
-
+    //if email doesnt exist then create new user with following
     const user = await Users.create({
       firstName,
       lastName,

@@ -23,7 +23,7 @@ const userSchema = new mongoose.Schema(
     password: {
       type: String,
       required: [true, "Password is Required!"],
-      minlength: [6, "Password length should be greater than 6 character"],
+      minlength: [6, "Password length should be greater than 6 characters"],
       select: true,
     },
     accountType: { type: String, default: "seeker" },
@@ -52,7 +52,7 @@ userSchema.methods.comparePassword = async function (userPassword) {
 //JSON WEBTOKEN
 userSchema.methods.createJWT = function () {
   return JWT.sign({ userId: this._id }, process.env.JWT_SECRET_KEY, {
-    expiresIn: "1d",
+    expiresIn: "1d", //token expires after one day
   });
 };
 

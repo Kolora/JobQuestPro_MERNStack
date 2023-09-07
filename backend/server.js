@@ -1,5 +1,5 @@
 import express from "express";
-import bodyParser from "body-parser";
+import bodyParser from "body-parser"; //middlewares
 import xss from "xss-clean";
 import morgan from "morgan";
 import mongoSanitize from "express-mongo-sanitize";
@@ -23,7 +23,7 @@ dotenv.config();
 // const cors = require("cors");
 import cors from "cors";
 
-//json middleware to connect server and client
+//json middlewares to connect server and client when db connected
 app.use(express.json());
 app.use(cors());
 app.use(xss());

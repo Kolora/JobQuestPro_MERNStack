@@ -169,7 +169,7 @@ export const getCompanies = async (req, res, next) => {
   try {
     const { search, sort, location } = req.query;
 
-    //conditons for searching filters
+    //conditions for searching filters
     const queryObject = {};
 
     if (search) {
@@ -208,7 +208,7 @@ export const getCompanies = async (req, res, next) => {
     // move next page
     // queryResult = queryResult.skip(skip).limit(limit);
 
-    // show mopre instead of moving to next page
+    // show more instead of moving to next page
     queryResult = queryResult.limit(limit * page);
 
     const companies = await queryResult;
@@ -258,7 +258,7 @@ export const getCompanyJobListing = async (req, res, next) => {
       path: "jobPosts",
       options: { sort: sorting },
     });
-    const companies = await queryResult;
+    const companies = queryResult;
 
     res.status(200).json({
       success: true,
